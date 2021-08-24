@@ -6,6 +6,7 @@ import com.alibaba.excel.annotation.write.style.ColumnWidth;
 import com.alibaba.excel.annotation.write.style.ContentRowHeight;
 import lombok.Data;
 
+import java.net.URL;
 import java.util.Date;
 
 /**
@@ -14,7 +15,8 @@ import java.util.Date;
  * @date: 2021-08-20 10:58
  **/
 @Data
-//@ContentRowHeight() 内容行高
+//内容行高
+@ContentRowHeight(200)
 public class Student {
 
     //学生id
@@ -34,5 +36,10 @@ public class Student {
     @ColumnWidth(20)
     @DateTimeFormat("yyyy-MM-dd")
     private Date birth;
+
+    //学生头像(图片导出)
+    @ExcelProperty(value = {"学生信息表", "学生头像"})
+    @ColumnWidth(50)
+    private URL profile;
 
 }
